@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <title>Appname</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+  </head>
+  <body>
+    <div class="jumbotron text-center">
+      <h1 >Amigo secreto dos idosos virtuais</h1>
+      <p>Feliz Natal!</p>
+    </div>
+    <div class="container">
+        <div class="row text-center">
+          <div class="col-md-12" id="loading">
+              <h2>Aguarde...</h2>
+          </div>
+        </div>
+        <div id="form" style="visibility: hidden;">
+          <div class="form-group">
+            <label for="name">Primeiro nome:</label>
+            <input type="text" class="form-control" placeholder="Informe o seu primeiro nome" id="name">
+          </div>
+          <div class="form-group">
+            <label for="password">Senha:</label>
+            <input type="password" class="form-control" placeholder="Informe a senha" id="password">
+          </div>
+          <button type="button" class="btn btn-success" onclick="login()">Acessar</button>
+        </div>
+
+        <div id="rules">
+          <p>
+            <br/>
+            <br/>
+            <b>regras:</b>
+            <br/>
+            valor máximo: R$ 10,10
+            <br/>
+            valor mínimo: R$ 9,99
+            <br/>
+            data: 09/12 às 21:09
+            <br/>
+            local: Posto Ipiranga Universitário.
+  
+          </p>
+        
+        </div>
+    </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="js/draw.js" charset="utf-8"></script>
+    <script>
+      Promise.all([getParticipants(), getDraw()]).then(()=> {
+        const loading = document.getElementById('loading');
+        loading.innerHTML = '';
+        const form = document.getElementById('form');
+        form.style.visibility = 'visible'
+      })
+    </script>
+
+    <style>
+    body {
+      background-color: #f9fff9;
+      background-image: radial-gradient(#7ec081 1px, #f1faf3 1px);
+      background-size: 20px 20px;
+    }
+    .container{
+      padding: 42px;
+      background: white;
+      border-radius: 25px;
+    }
+    .jumbotron{
+      background-color: #a6d4a8;
+      font:bolder
+    }
+    </style>
+    
+  </body>
+</html>
